@@ -1,10 +1,16 @@
+import { useDispatch } from "react-redux";
 import "./App.css";
 import DemoTable from "./components/DemoTable";
 
-import TableComponent from "./components/TableComponent";
-import TableDataGrid from "./components/TableDataGrid";
+import { useEffect } from "react";
+import { fetchRowApi } from "./store/rowApiSlice";
 
 function App() {
+  const rowdDataDispatch = useDispatch();
+  useEffect(() => {
+    console.log("useEffect");
+    rowdDataDispatch(fetchRowApi());
+  }, []);
   return (
     <>
       {/* <TableComponent /> */}
